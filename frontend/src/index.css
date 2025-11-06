@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------
+   Global Body
+-------------------------- */
+body {
+  @apply bg-gradient-to-r from-gray-900 to-gray-800 text-white font-sans h-screen;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* -------------------------
+   Scrollbar Styling
+-------------------------- */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #1f2937;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2563eb, #9333ea);
+  border-radius: 10px;
+  border: 3px solid #1f2937;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4f46e5, #d946ef);
+}
+
+/* -------------------------
+   Sidebar Styling
+-------------------------- */
+.sidebar {
+  @apply w-80 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 flex flex-col justify-between shadow-xl transition-all duration-300;
+}
+.sidebar:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+.sidebar h2 {
+  @apply text-2xl font-bold mb-5;
+}
+.sidebar h3 {
+  @apply text-lg font-semibold mb-2;
+}
+.sidebar ul li {
+  @apply py-1 px-2 rounded hover:bg-blue-500 cursor-pointer transition-colors duration-300;
+}
+
+/* -------------------------
+   Buttons
+-------------------------- */
+.btn {
+  @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-2 px-4 rounded-lg shadow-lg cursor-pointer transition-all duration-300;
+}
+.btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+.btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* -------------------------
+   Inputs & Selects
+-------------------------- */
+input,
+select,
+textarea {
+  @apply rounded-lg border-none outline-none p-2 mb-2 text-black w-full shadow-inner transition-all duration-300;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  @apply shadow-lg scale-105;
+}
+
+/* -------------------------
+   Calendar Styling
+-------------------------- */
+.fc .fc-event {
+  @apply rounded-lg shadow-md font-semibold text-white cursor-pointer transition-transform duration-200;
+}
+.fc .fc-event:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+/* Neon glow colors for event status */
+.fc-event[style*="#2563eb"] {
+  box-shadow: 0 0 10px #2563eb, 0 0 20px #2563eb, 0 0 30px #2563eb;
+}
+.fc-event[style*="#facc15"] {
+  box-shadow: 0 0 10px #facc15, 0 0 20px #facc15, 0 0 30px #facc15;
+}
+.fc-event[style*="#9d4edd"] {
+  box-shadow: 0 0 10px #9d4edd, 0 0 20px #9d4edd, 0 0 30px #9d4edd;
+}
+
+/* -------------------------
+   Modals
+-------------------------- */
+.modal {
+  @apply fixed inset-0 flex items-center justify-center bg-black/50 z-50;
+}
+.modal-content {
+  @apply bg-white rounded-xl shadow-2xl p-6 w-96 max-w-full animate-fadeIn text-black;
+}
+
+/* -------------------------
+   Animations
+-------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* -------------------------
+   Task Panel (Right Section)
+-------------------------- */
+.task-panel {
+  @apply flex flex-col gap-3 h-full overflow-y-auto;
+}
+.task-panel h2 {
+  @apply text-xl font-bold mb-3;
+}
+.task-card {
+  @apply p-3 rounded-lg shadow-md font-semibold text-white transition-all duration-300;
+}
+.task-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Task status colors */
+.task-card.busy {
+  background-color: #2563eb;
+}
+.task-card.swappable {
+  background-color: #facc15;
+  color: black;
+}
+.task-card.swap_pending {
+  background-color: #9d4edd;
+}
+
+/* -------------------------
+   Dashboard Layout
+-------------------------- */
+.dashboard {
+  @apply flex flex-row h-screen gap-4;
+}
+header {
+  @apply flex items-center justify-between p-4 bg-white/20 backdrop-blur-md shadow-md rounded-b-xl;
+}
+
+/* -------------------------
+   Utilities
+-------------------------- */
+* {
+  transition: all 0.3s ease-in-out;
+}
